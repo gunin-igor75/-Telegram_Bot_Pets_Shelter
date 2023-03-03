@@ -4,7 +4,9 @@ import pro.sky.telegram_bot_pets_shelter.entity.Owner;
 import pro.sky.telegram_bot_pets_shelter.entity.Pet;
 
 import java.util.List;
-
+/**
+ *  Owner Service - Интерфейс, который содержит CRUD операции
+ **/
 public interface OwnerService {
     Owner createOwner(Owner owner);
     Owner findOwner(Long id);

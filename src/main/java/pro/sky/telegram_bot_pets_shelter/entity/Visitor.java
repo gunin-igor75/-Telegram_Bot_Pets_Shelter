@@ -6,12 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDateTime;
-
 @Entity(name="visitor")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ *  Visitor - Класс для сущности посетитель со свойствами
+ *  <b>id</b>, <b>chatId</b>, <b>name</b>, <b>registeredAt</b>, <b>lastAction</b>.
+ **/
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

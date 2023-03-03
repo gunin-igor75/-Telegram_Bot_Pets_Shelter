@@ -3,6 +3,9 @@ package pro.sky.telegram_bot_pets_shelter.service;
 import pro.sky.telegram_bot_pets_shelter.entity.Pet;
 
 import java.util.List;
+/**
+ *  Pet Service - Интерфейс, который содержит CRUD операции
+ **/
 
 public interface PetService {
 

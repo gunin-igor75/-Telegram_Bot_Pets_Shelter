@@ -45,7 +45,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final CommandStorage commandStorage;
 
     /**
-     * Пефикс входящего сообщения
+     * Префикс входящего сообщения
      */
     private final String PREFIX = "/";
 
@@ -63,7 +63,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     /**
-     * Метод отвечающий за регитсрацию бота и формирования главногоменю
+     * Метод отвечающий за регитсрацию бота и формирования главного меню
      */
     @PostConstruct
     public void init() {
@@ -82,7 +82,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      * - если текстовое сообщение содержится в update.getMessage()
      * - если текстовое сообщение содержиься в реакции на нажатую кнопку
      *
-     * @param update - входящи параметр при прослушиванием бота входящих сообщени
+     * @param update - входящий параметр при прослушиванием бота входящих сообщений
      */
     @Override
     public void onUpdateReceived(Update update) {

@@ -12,7 +12,12 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ *  Owner - Класс для сущности хозяин питомца со свойствами
+ *  <b>id</b>, <b>chatId</b>, <b>name</b>, <b>registeredAt</b>, <b>lastAction</b>, <b>pet</b>.
+ **/
 public class Owner {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

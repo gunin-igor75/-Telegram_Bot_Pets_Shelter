@@ -4,6 +4,9 @@ import pro.sky.telegram_bot_pets_shelter.entity.Pet;
 import pro.sky.telegram_bot_pets_shelter.entity.Report;
 
 import java.util.List;
+/**
+ *  Report Service - Интерфейс, который содержит CRUD операции
+ **/
 
 public interface ReportService {
     Report createReport(Report report);

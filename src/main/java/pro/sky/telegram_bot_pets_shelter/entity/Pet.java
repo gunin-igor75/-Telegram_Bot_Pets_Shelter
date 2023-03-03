@@ -6,11 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ *  Pet - Класс для сущности питомец
+ *
+ **/
+
 @Entity(name="pet")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ *  Pet - Класс для сущности питомец со свойствами
+ *  <b>id</b>, <b>name</b>, <b>adopted</b>, <b>report</b>.
+ **/
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

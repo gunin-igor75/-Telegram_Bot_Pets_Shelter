@@ -57,7 +57,7 @@ public class MessageUtils {
 
     /**
      * Данный метод отправляет сообщение хозяину бота
-     * @return Возвращает сообщение хозяну чата
+     * @return - Возвращает сообщение хозяну чата
      */
     public SendMessage sendMessageCallOwner() {
         SendMessage response = new SendMessage();

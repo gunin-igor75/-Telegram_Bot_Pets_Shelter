@@ -1,5 +1,6 @@
 package pro.sky.telegram_bot_pets_shelter.command;
 
+import com.vdurmont.emoji.EmojiParser;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -7,10 +8,10 @@ import pro.sky.telegram_bot_pets_shelter.utils.MessageUtils;
 
 
 /**
- * Данный класс формрует сообщения исодя из выбора start
+ * Данный класс формрует сообщения исходя из выбора start
  */
 @Component
-public class Start implements Command{
+public class Start implements Command {
 
     private final MessageUtils messageUtils;
 
@@ -21,7 +22,6 @@ public class Start implements Command{
     @Override
     public SendMessage execute(Update update) {
         String userName = update.getMessage().getChat().getUserName();
-        return messageUtils.generationSendMessage(update, "Здравствуйте " + userName +
-                " Вас приветствует бот приюта!");
+        return messageUtils.generationSendMessage(update, EmojiParser.parseToUnicode("Здравствуйте " + userName + ":heart_eyes:" + " Вас приветствует бот приюта!"));
     }
 }

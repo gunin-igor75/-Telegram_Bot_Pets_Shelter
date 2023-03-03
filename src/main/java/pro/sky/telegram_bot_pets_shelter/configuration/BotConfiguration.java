@@ -20,6 +20,6 @@ public class BotConfiguration {
     /**
      * токен бота, полученный из переменной среды окружения операционной системы
      */
-    @Value("${TELEGRAM_BOT_TOKEN}")
+    @Value("${telegram.bot.token}")
     private String token;
 }
