@@ -3,9 +3,7 @@ package pro.sky.telegram_bot_pets_shelter.service.imp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pro.sky.telegram_bot_pets_shelter.entity.Cat;
-import pro.sky.telegram_bot_pets_shelter.entity.Dog;
 import pro.sky.telegram_bot_pets_shelter.exception_handling.CatNotFoundException;
-import pro.sky.telegram_bot_pets_shelter.exception_handling.DogNotFoundException;
 import pro.sky.telegram_bot_pets_shelter.repositories.CatRepository;
 import pro.sky.telegram_bot_pets_shelter.service.CatService;
 
@@ -39,6 +37,8 @@ public class CatServiceImpl implements CatService {
         checkCayNull(cat);
         Cat persistentCat = findCat(cat.getId());
         if (persistentCat == null) {
+            String message = "There is no cat with ID =" + cat.getId() + " in Database";
+            log.error(message);
             throw new CatNotFoundException();
         }
         return catRepository.save(persistentCat);
@@ -48,6 +48,8 @@ public class CatServiceImpl implements CatService {
     public Cat deleteCat(Long id) {
         Cat cat = findCat(id);
         if (cat == null) {
+            String message = "There is no cat with ID =" + id + " in Database";
+            log.error(message);
             throw new CatNotFoundException();
         }
         catRepository.delete(cat);
@@ -65,7 +67,8 @@ public class CatServiceImpl implements CatService {
 
     private void checkCayNull(Cat cat) {
         if (cat == null) {
-            log.error("cat is null");
+            String message = "cat is null";
+            log.error(message);
             throw new NullPointerException();
         }
     }

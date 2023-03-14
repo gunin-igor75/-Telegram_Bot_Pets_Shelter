@@ -32,7 +32,7 @@ public class DogController {
 
     @Operation(
             summary = "Поиск песика по id",
-            description = "Позволяет найти пеиска по id",
+            description = "Позволяет найти песика по id",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
@@ -136,7 +136,7 @@ public class DogController {
 
     @Operation(
             summary = "Удаление песика по id",
-            description = "Позволяет удалить пеиска по id",
+            description = "Позволяет удалить песика по id",
             responses = {
                     @ApiResponse(
                             responseCode = "200",

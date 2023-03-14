@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import pro.sky.telegram_bot_pets_shelter.command.Command;
+import pro.sky.telegram_bot_pets_shelter.entity.Owner;
 import pro.sky.telegram_bot_pets_shelter.entity.Report;
 import pro.sky.telegram_bot_pets_shelter.service.CatService;
 import pro.sky.telegram_bot_pets_shelter.service.OwnerService;
@@ -22,6 +23,9 @@ public class CatSaveReport implements Command {
     private final ReportService reportService;
     private final OwnerService ownerService;
     private final CatService catService;
+    private String fileId;
+    private Owner persistentOwner;
+    private String caption;
 
     public CatSaveReport(MessageUtils messageUtils, ReportService reportService,
                          OwnerService ownerService, CatService catService) {
@@ -33,8 +37,8 @@ public class CatSaveReport implements Command {
 
     @Override
     public SendMessage execute(Update update) {
-        var fileId = update.getMessage().getPhoto().get(0).getFileId();
-        var caption = update.getMessage().getCaption();
+        fileId = update.getMessage().getPhoto().get(0).getFileId();
+        caption = update.getMessage().getCaption();
         var text = update.getMessage().getText();
         boolean checkCaption = messageUtils.checkReportString(caption);
         boolean checkText = messageUtils.checkReportString(text);
@@ -79,7 +83,7 @@ public class CatSaveReport implements Command {
     }
 
     private void editReportCat(Report report, String fileIdOrHealthStatus) {
-        var persistentOwner = ownerService.findOwnerByChatId(report.getChatId());
+        persistentOwner = ownerService.findOwnerByChatId(report.getChatId());
         if (report.getFileId() == null) {
             report.setFileId(fileIdOrHealthStatus);
         } else {
